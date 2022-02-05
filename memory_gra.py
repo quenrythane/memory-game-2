@@ -11,5 +11,9 @@ print(f'number_of_rows_and_columns: {number_of_rows_and_columns}x{number_of_rows
 
 empty_board = memory.making_empty_board(number_of_rows_and_columns)
 print('empty_board: ', empty_board)
-player_board = memory.fill_board(number_of_rows_and_columns, empty_board, list_of_cards)
+
+
+game_board = memory.fill_board(number_of_rows_and_columns, empty_board, list_of_cards, False)
+player_board = memory.fill_board(number_of_rows_and_columns, empty_board, list_of_cards, True)
+print('game_board: ', game_board)
 print('player_board: ', player_board)

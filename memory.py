@@ -48,10 +48,14 @@ def making_empty_board(number_of_rows_and_columns):
     return empty_board
 
 
-def fill_board(number_of_rows_and_columns, empty_board, list_of_cards):
+def fill_board(number_of_rows_and_columns, empty_board, list_of_cards, player_view:bool):
     board = empty_board
-    for i, card in enumerate(list_of_cards):
-        board[i // number_of_rows_and_columns].append(card)
+    # wypełniał plansze kartami
+    if player_view:  # player board (hidden cards)
+        # board = ["x" for i in range(len(list_of_cards))]
+        [board[i // number_of_rows_and_columns].append("X") for i, card in enumerate(list_of_cards)]
+    else:  # game board (revealed cards)
+        [board[i // number_of_rows_and_columns].append(card) for i, card in enumerate(list_of_cards)]
 
     # tutaj sprawdzam czy ostatni z wierszy jest pusty i jeśli tak, to go usuwam (po co ma śmiecić?)
     board.pop() if board[-1] == [] else board
